@@ -22376,3 +22376,21 @@ SystemStackError (stack level too deep):
   app/controllers/posts_controller.rb:27:in `update'
 
 
+
+
+Started PUT "/posts/1" for 73.199.203.18 at 2018-07-17 23:06:37 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"etTPwJYrhx6EkFEFAh25IRe2fNpO9ISuTalFVLBQ/IQByVifUYRanuQr44hZAMgfwTNOjsXSzVxiB5RvAwB5KA==", "title"=>"dmitri", "description"=>"asdfasdfTest", "commit"=>"Submit Post", "id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE (1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["title", "dmitri"], ["description", "asdfasdfTest"], ["updated_at", "2018-07-17 23:06:37.693827"], ["id", 1]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://67.205.182.198:34920/posts/1
+Completed 302 Found in 31ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/posts/1" for 73.199.203.18 at 2018-07-17 23:06:37 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
