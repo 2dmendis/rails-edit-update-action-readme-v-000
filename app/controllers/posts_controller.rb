@@ -24,6 +24,9 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		raise update.inspect 
+		
+		@post = Post.find_by(params[:id])
+		@post.update(title: params[:title], description: params[:description])
+		redirect_to post_path(@post) 
 	end
 end
