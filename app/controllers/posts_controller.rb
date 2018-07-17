@@ -25,5 +25,5 @@ class PostsController < ApplicationController
 
 	def update
 		raise update.inspect 
-	end 
+	end
 end
